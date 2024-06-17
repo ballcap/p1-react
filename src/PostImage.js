@@ -13,7 +13,7 @@ export default function PostImage() {
 
     const fetchUploadedImages = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/files');
+            const response = await axios.get('https://p1-nodejs.onrender.com/api/files');
             setUploadedImages(response.data);
         } catch (error) {
             console.error('Error fetching uploaded images:', error);
@@ -35,7 +35,7 @@ export default function PostImage() {
 
         try {
             setUploading(true);
-            const response = await axios.post('http://localhost:5000/api/upload', formData, {
+            const response = await axios.post('https://p1-nodejs.onrender.com/api/upload', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -65,7 +65,7 @@ export default function PostImage() {
             <div>
                 <h3>Uploaded Images:</h3>
                 {uploadedImages.map((image, index) => (
-                    <img key={index} src={`http://localhost:5000${image}`} alt={`Uploaded ${index}`} style={{ maxWidth: '100%', maxHeight: '400px' }} />
+                    <img key={index} src={`https://p1-nodejs.onrender.com${image}`} alt={`Uploaded ${index}`} style={{ maxWidth: '100%', maxHeight: '400px' }} />
                 ))}
             </div>
         </div>
